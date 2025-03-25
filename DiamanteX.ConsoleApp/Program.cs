@@ -13,30 +13,16 @@ internal class Program
             bool conseguiuConverter = int.TryParse(Console.ReadLine(), out tamanhoDiamante);
 
             if (conseguiuConverter && tamanhoDiamante % 2 != 0)
+            {
+                tamanhoDiamante = Math.Abs(tamanhoDiamante);
                 break;
+            }
 
-            Console.WriteLine("\nValor Inválido\n");
+            Console.WriteLine("\nValor Inválido");
+            Console.WriteLine("\nDigite um valor inteiro e ímpar!\n");
         }
 
-        int linhasDiamante = tamanhoDiamante / 2;
-        
-        for (int i = 0; i < linhasDiamante; i++)
-        {
-            string espacoDiamante = new string(' ', linhasDiamante - i);
-
-            string diamanteCima = new string('*', i * 2 + 1);
-
-            Console.WriteLine(espacoDiamante + diamanteCima);
-        }
-
-        for (int i = linhasDiamante; i >= 0; i--)
-        {
-            string espacoDiamante = new string(' ', linhasDiamante - i);
-
-            string diamanteCima = new string('*', i * 2 + 1);
-
-            Console.WriteLine(espacoDiamante + diamanteCima);
-        }
+        DiamanteX.GerarDiamanteCompleto(tamanhoDiamante);
 
         Console.ReadLine();
     }
