@@ -4,6 +4,31 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        while (true)
+        {
+            Console.Clear();
+
+            int tamanhoDiamante = DigitarNumero();
+
+            string[] diamante = DiamanteX.GerarDiamanteCompleto(tamanhoDiamante);
+
+            MostrarDiamante(diamante);
+
+            if (JogarNovamente())
+                break;
+        }
+    }
+
+    static void MostrarDiamante(string[] diamante)
+    {
+        foreach (string i in diamante)
+        {
+            Console.WriteLine(i);
+        }
+    }
+
+    static int DigitarNumero()
+    {
         int tamanhoDiamante;
 
         while (true)
@@ -21,19 +46,16 @@ internal class Program
             Console.WriteLine("\nValor Inválido");
             Console.WriteLine("\nDigite um valor inteiro e ímpar!\n");
         }
-
-        string[] diamante = DiamanteX.GerarDiamanteCompleto(tamanhoDiamante);
+        Console.WriteLine();
         
-        MostrarDiamante(diamante);
-
-        Console.ReadLine();
+        return tamanhoDiamante;
     }
 
-    static void MostrarDiamante(string[] diamante)
+    static bool JogarNovamente()
     {
-        foreach (string i in diamante)
-        {
-            Console.WriteLine(i);
-        }
+        Console.WriteLine("\nDeseja jogar novamente? (S/N)");
+        string validacao = Console.ReadLine()!.ToUpper();
+
+        return validacao != "S"; 
     }
 }
