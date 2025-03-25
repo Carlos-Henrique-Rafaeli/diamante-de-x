@@ -22,8 +22,18 @@ internal class Program
             Console.WriteLine("\nDigite um valor inteiro e ímpar!\n");
         }
 
-        DiamanteX.GerarDiamanteCompleto(tamanhoDiamante);
+        string[] diamante = DiamanteX.GerarDiamanteCompleto(tamanhoDiamante);
+        
+        MostrarDiamante(diamante);
 
         Console.ReadLine();
+    }
+
+    static void MostrarDiamante(string[] diamante)
+    {
+        foreach (string i in diamante)
+        {
+            Console.WriteLine(i);
+        }
     }
 }

@@ -2,38 +2,59 @@
 
 public class DiamanteX
 {
-    public static void GerarDiamanteCompleto(int tamanho)
+    public static string[] GerarDiamanteCompleto(int tamanho)
     {
-        GerarDiamanteSuperior(tamanho);
-        GerarDiamanteInferior(tamanho);
+        string[] diamanteSuperior = GerarDiamanteSuperior(tamanho);
+
+        string[] diamanteMeio = GerarDiamanteMeio(tamanho);
+
+        string[] diamanteInferior = GerarDiamanteInferior(tamanho);
+
+        string[] resultado = diamanteSuperior.Concat(diamanteMeio).Concat(diamanteInferior).ToArray();
+
+        return resultado;
     }
 
-    public static void GerarDiamanteSuperior(int tamanho)
+    public static string[] GerarDiamanteSuperior(int tamanho)
     {
         int linhasDiamante = tamanho / 2;
+
+        string[] resultado = new string[linhasDiamante];
 
         for (int i = 0; i < linhasDiamante; i++)
         {
             string espacoDiamante = new string(' ', linhasDiamante - i);
 
-            string diamanteCima = new string('*', i * 2 + 1);
+            string diamanteSuperior = new string('*', i * 2 + 1);
 
-            Console.WriteLine(espacoDiamante + diamanteCima);
+            resultado[i] = espacoDiamante + diamanteSuperior;
         }
 
+        return resultado;
     }
 
-    public static void GerarDiamanteInferior(int tamanho)
+    public static string[] GerarDiamanteMeio(int tamanho)
+    {
+        string diamanteMeio = new string('*', tamanho);
+        string[] resultado = [diamanteMeio];
+        return resultado;
+    }
+
+    public static string[] GerarDiamanteInferior(int tamanho)
     {
         int linhasDiamante = tamanho / 2;
 
-        for (int i = linhasDiamante; i >= 0; i--)
+        string[] resultado = new string[linhasDiamante];
+
+        for (int i = 0; i < linhasDiamante; i++)
         {
-            string espacoDiamante = new string(' ', linhasDiamante - i);
+            string espacoDiamante = new string(' ', i + 1);
 
-            string diamanteCima = new string('*', i * 2 + 1);
+            string diamanteInferior = new string('*', (linhasDiamante - i - 1) * 2 + 1);
 
-            Console.WriteLine(espacoDiamante + diamanteCima);
+            resultado[i] = espacoDiamante + diamanteInferior;
         }
+
+        return resultado;
     }
 }
