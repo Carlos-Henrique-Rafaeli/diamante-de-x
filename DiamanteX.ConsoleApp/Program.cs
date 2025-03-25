@@ -18,9 +18,25 @@ internal class Program
             Console.WriteLine("\nValor Inválido\n");
         }
 
-        string diamanteMeio = new string('*', tamanhoDiamante);
+        int linhasDiamante = tamanhoDiamante / 2;
+        
+        for (int i = 0; i < linhasDiamante; i++)
+        {
+            string espacoDiamante = new string(' ', linhasDiamante - i);
 
-        Console.WriteLine(diamanteMeio);
+            string diamanteCima = new string('*', i * 2 + 1);
+
+            Console.WriteLine(espacoDiamante + diamanteCima);
+        }
+
+        for (int i = linhasDiamante; i >= 0; i--)
+        {
+            string espacoDiamante = new string(' ', linhasDiamante - i);
+
+            string diamanteCima = new string('*', i * 2 + 1);
+
+            Console.WriteLine(espacoDiamante + diamanteCima);
+        }
 
         Console.ReadLine();
     }
