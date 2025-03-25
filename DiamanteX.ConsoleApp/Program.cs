@@ -18,6 +18,10 @@ internal class Program
             Console.WriteLine("\nValor Inválido\n");
         }
 
+        string diamanteMeio = new string('*', tamanhoDiamante);
+
+        Console.WriteLine(diamanteMeio);
+
         Console.ReadLine();
     }
 }
